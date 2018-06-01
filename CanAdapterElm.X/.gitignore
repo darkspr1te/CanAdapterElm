@@ -1,0 +1,7 @@
+*.obj
+/build
+/dist
+/debug
+/funclist
+*.num
+/Release/

@@ -1,0 +1,73 @@
+######################################################################################
+#
+# Copyright (C) Cambridge Silicon Radio Limited 2005-2009
+# Part of BlueLab 4.1-Release
+#
+######################################################################################
+# ------------------------------------------------------------------------------------
+# AT Commands
+#
+# Format specified in spec AT<cmd>=<value><cr>
+#-------------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------------
+# Function name prefix
+# ------------------------------------------------------------------------------------
+
+prefix spp_
+
+# Empty command
+{ AT \r\n} : handleATEmpty
+{ \n AT \r\n} : handleATEmpty
+
+# Config command
+{ AT + CONF \r\n} : handleATConf
+{ \n AT + CONF \r\n} : handleATConf
+
+# Data command
+{ AT + DATA \r\n} : handleATData
+{ \n AT + DATA \r\n} : handleATData
+
+# Get pin
+{ AT + PSWD ? \r\n} : handleATGetPin
+{ \n AT + PSWD ? \r\n} : handleATGetPin
+
+# Set pin
+{ AT + PSWD = %s:pin \r\n} : handleATSetPin
+{ \n AT + PSWD = %s:pin \r\n} : handleATSetPin
+
+# Get name
+{ AT + NAME ? \r\n} : handleATGetName
+{ \n AT + NAME ? \r\n} : handleATGetName
+
+# Set name
+{ AT + NAME = %*:name \r\n} : handleATSetName
+{ \n AT + NAME = %*:name \r\n} : handleATSetName
+
+# Get uart
+{ AT + UART ? \r\n} : handleATGetUart
+{ \n AT + UART ? \r\n} : handleATGetUart
+
+# Set uart
+{ AT + UART = %s:baud , %d:stop , %d:parity \r\n} : handleATSetUart
+{ \n AT + UART = %s:baud , %d:stop , %d:parity \r\n} : handleATSetUart
+
+# Get address
+{ AT + ADDR ? \r\n} : handleATGetAddr
+{ \n AT + ADDR ? \r\n} : handleATGetAddr
+
+# Get version
+{ AT + VERSION ? \r\n} : handleATGetVersion
+{ \n AT + VERSION ? \r\n} : handleATGetVersion
+
+# Factory reset
+{ AT + ORGL \r\n} : handleATOrgl
+{ \n AT + ORGL \r\n} : handleATOrgl
+
+# Reset
+{ AT + RESET \r\n} : handleATReset
+{ \n AT + RESET \r\n} : handleATReset
+
+# firmware update command
+{ AT + FWUPDATE \r\n} : handleATFwUpdate
+{ \n AT + FWUPDATE \r\n} : handleATFwUpdate
